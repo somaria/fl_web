@@ -15,7 +15,15 @@ class _HomeViewState extends State<HomeView> {
       ),
       drawer: SideDrawer(),
       body: Container(
-        child: Text("At Home Page"),
+        padding: EdgeInsets.only(top: 64, left: 64),
+        child: RaisedButton(
+          color: Colors.blue[100],
+          onPressed: () {},
+          child: const Text(
+            'Safe Entry Checkin',
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
       ),
     );
   }
