@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:fl_webview/retrieve.dart';
+import 'package:fl_webview/sidedrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
@@ -27,7 +29,8 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("InAppWebView")),
+      appBar: AppBar(title: Text("SafeEntry"),),
+      drawer: SideDrawer(),
       body: Container(
         child: Column(children: <Widget>[
           Expanded(
