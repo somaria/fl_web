@@ -1,5 +1,7 @@
+import 'package:fl_webview/scancode.dart';
 import 'package:flutter/material.dart';
 import 'retrieve.dart';
+import "homeview.dart";
 
 class SideDrawer extends StatelessWidget {
   const SideDrawer({
@@ -13,13 +15,24 @@ class SideDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text('Drawer Header'),
+            child: Text('PS SafeEntry'),
             decoration: BoxDecoration(
               color: Colors.blue,
             ),
           ),
           ListTile(
-            title: Text('Item 1'),
+            title: Text('Home'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeView(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text('RetrieveMyInfo'),
             onTap: () {
               Navigator.push(
                 context,
@@ -31,9 +44,14 @@ class SideDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('Item 2'),
+            title: Text('Scan Code'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ScanCode(),
+                ),
+              );
             },
           ),
         ],
