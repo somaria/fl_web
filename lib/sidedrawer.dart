@@ -32,6 +32,17 @@ class SideDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            title: Text('Scan Code'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ScanCode(),
+                ),
+              );
+            },
+          ),
+          ListTile(
             title: Text('RetrieveMyInfo'),
             onTap: () {
               Navigator.push(
@@ -41,17 +52,6 @@ class SideDrawer extends StatelessWidget {
                 ),
               );
               // Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            title: Text('Scan Code'),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ScanCode(),
-                ),
-              );
             },
           ),
         ],

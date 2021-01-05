@@ -19,7 +19,6 @@ class _ScanCodeState extends State<ScanCode> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
         home: Scaffold(
             drawer: SideDrawer(),
             appBar: AppBar(title: const Text('Barcode scan')),

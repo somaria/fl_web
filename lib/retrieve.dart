@@ -46,8 +46,7 @@ class RunRetrieve extends StatefulWidget {
 
 class _RunRetrieveState extends State<RunRetrieve> {
   openWeb() async {
-    await FlutterWebBrowser.openWebPage(
-        url: "https://musing-borg-8fb7f1.netlify.app");
+    await FlutterWebBrowser.openWebPage(url: "http://localhost:3000/");
   }
 
   @override
