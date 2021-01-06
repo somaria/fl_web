@@ -57,6 +57,13 @@ class _RunRetrieveState extends State<RunRetrieve> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    print("Disposing page");
+  }
+
+  @override
   Widget build(BuildContext context) {
     print("view will build");
     return Container(
