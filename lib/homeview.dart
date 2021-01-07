@@ -11,23 +11,45 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   var message = "";
+  var user = "";
+
+  var dio = Dio();
+
+  void getUser() async {
+    try {
+      // Response response = await dio.get('http://localhost:3001/getuser2');
+      Response response = await dio.get('http://localhost:4000/lastuser');
+      print(response.data);
+      Map result = response.data;
+      print(result['user']);
+      setState(() {
+        user = result['user'];
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     print("In Safe Entry Home");
+    getUser();
   }
 
   void checkIn() async {
-    var dio = Dio();
-    Response response = await dio.get('http://10.0.2.2:4000/safelogin/1');
-    print(response.data);
-    Map result = response.data;
-    print(result['message']);
-    setState(() {
-      message = result['message'];
-    });
+    try {
+      // var dio = Dio();
+      // Response response = await dio.get('http://10.0.2.2:4000/safelogin/1');
+      Response response = await dio.get('http://localhost:4000/safelogin');
+      print(response.data);
+      Map result = response.data;
+      print(result['message']);
+      setState(() {
+        message = result['message'];
+      });
+    } catch (e) {}
   }
 
   @override
@@ -39,8 +61,15 @@ class _HomeViewState extends State<HomeView> {
       drawer: SideDrawer(),
       body: Column(
         children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 64),
+            child: Text(
+              user,
+              style: TextStyle(fontSize: 24),
+            ),
+          ),
           Container(
-            padding: EdgeInsets.only(top: 64, left: 64),
+            padding: EdgeInsets.only(top: 24),
             child: RaisedButton(
               shape: RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(8.0)),
@@ -56,11 +85,14 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 24,
           ),
-          Text(
-            message,
-            style: TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              message,
+              style: TextStyle(fontWeight: FontWeight.w700, fontSize: 18),
+            ),
           ),
         ],
       ),
