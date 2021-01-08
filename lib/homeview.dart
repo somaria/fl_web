@@ -41,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
   void checkIn() async {
     try {
       // var dio = Dio();
-      // Response response = await dio.get('http://10.0.2.2:4000/safelogin/1');
+      // Response response = await dio.get('http://10.0.2.2:4000/safelogin');
       Response response = await dio.get('http://localhost:4000/safelogin');
       print(response.data);
       Map result = response.data;
